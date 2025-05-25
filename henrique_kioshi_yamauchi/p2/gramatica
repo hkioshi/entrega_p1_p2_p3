@@ -1,0 +1,47 @@
+<codigo>      ::= <funcao>* "main(){" <blocos>* "}"
+
+<funcao>      ::= "funcao" <id> "()" "{" <blocos>* "}"
+
+<blocos>      ::= <bloco>*
+
+<bloco>       ::= <se> | <print> | <loop> | <chamada> | <declara> | <atribuicao>
+
+<se>          ::= "se(" <exp> "){" <blocos>* "}"
+
+<print>       ::= "print(" <exp> ");"
+
+<loop>        ::= "enquanto(" <exp> "){" <blocos>* "}"
+
+<chamada>     ::= <id> "();"
+
+<declara>     ::= <tipo> <id> "=" <exp> ";"
+
+<atribuicao>  ::= <id> "=" <exp> ";"
+
+<exp>         ::= "verdadeiro" 
+               | "falso" 
+               | "nulo" 
+               | <numero> 
+               | <texto> 
+               | <id>
+               | "(" <exp> <opbin> <exp> ")"
+
+<tipo>        ::= "numero" | "texto" | "logico"
+
+<opbin>       ::= <opmath> | <oplogico>
+
+<opmath>      ::= "+" | "-" | "*" | "/" | "^" | "%"
+
+<oplogico>    ::= "<" | "<=" | ">" | ">=" | "==" | "!=" | "e" | "ou"
+
+<numero>      ::= <digito>+
+<digito>      ::= "0" | "1" | "2" | "3" | "4" | "5" | "6" | "7" | "8" | "9"
+
+<texto>       ::= <letra>+
+<letra>       ::= "a" | "b" | "c" | "d" | "e" | "f" | "g" | "h" | "i" | "j" 
+               | "k" | "l" | "m" | "n" | "o" | "p" | "q" | "r" | "s" | "t" 
+               | "u" | "v" | "w" | "x" | "y" | "z"
+
+<id>          ::= <letra_ou_sublinhado> <letra_digito_ou_sublinhado>*
+<letra_ou_sublinhado> ::= <letra> | "_"
+<letra_digito_ou_sublinhado> ::= <letra> | <digito> | "_"

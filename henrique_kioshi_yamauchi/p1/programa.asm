@@ -1,0 +1,13 @@
+.DATA
+A DB 50
+B DB 10
+X DB ?
+
+.CODE
+.ORG 0
+; X = A + B
+LDA A ; A
+ADD B ; B
+STA X ; X
+LDA X ; 
+HLT

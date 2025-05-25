@@ -1,0 +1,7 @@
+PROGRAMA "Exemplo"
+INICIO
+A = 50
+B = 10
+X = A + B
+RES = X
+FIM

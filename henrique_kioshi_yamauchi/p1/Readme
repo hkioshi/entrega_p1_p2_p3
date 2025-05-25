@@ -1,0 +1,116 @@
+
+# Compilador, Assembler e Executor para Linguagem Neander
+
+**Autor:** Henrique Kioshi Yamauchi
+**Curso:** BCC
+---
+
+## 📚 Descrição
+
+Este projeto implementa um pipeline completo para uma linguagem de programação simples inspirada no processador **Neander**. O sistema é composto por três etapas:
+
+1. **Compilador (`compilador`)** – Converte um código fonte `.lpn` para `.asm`.
+2. **Assembler (`assembler`)** – Converte o código `.asm` para `.bin`.
+3. **Executor (`executor`)** – Executa o binário `.bin` simulando o Neander.
+
+---
+
+## 🛠️ Compilação
+
+Você pode compilar todos os artefatos com o comando:
+
+```bash
+make
+```
+
+Esse comando irá gerar os seguintes executáveis:
+
+- `compilador` (a partir de `parcer.c`)
+- `assembler` (a partir de `interpretador.c`)
+- `executor` (a partir de `executor.c`)
+
+---
+
+## 🚀 Como Usar
+
+### 1. Escreva um programa `.lpn`
+Crie um arquivo chamado `programa.lpn`. Exemplo disponível no repositório.
+
+### 2. Compile e gere `.asm`
+```bash
+./compilador
+```
+
+### 3. Gere `.bin` a partir do `.asm`
+```bash
+./assembler
+```
+
+### 4. Execute o programa
+```bash
+./executor
+```
+
+### 5. Para rodar tudo de uma vez
+```bash
+make run
+```
+
+### 6. Para limpar os arquivos gerados
+```bash
+make clean
+```
+
+---
+
+## 📄 Estrutura dos Arquivos
+
+- `parcer.c`: Lê `.lpn` e gera `.asm`.
+- `interpretador.c`: Lê `.asm` e gera `.bin`.
+- `executor.c`: Simula a execução do `.bin`.
+- `programa.lpn`: Exemplo de programa na linguagem criada.
+- `gramatica.pdf`: Gramática BNF reconhecida pelo compilador.
+- `assembler.pdf`: Descrição da estrutura e gramática do assembler.
+- `Makefile`: Script para construção dos executáveis e automação.
+
+---
+
+## ✅ Funcionalidades
+
+- Declaração de variáveis com valores ou indefinidas (`?`).
+- Atribuições com soma (`X = A + B`).
+- Geração de instruções Neander (`LDA`, `ADD`, `STA`, `HLT`).
+- Tradução para memória binária simulada.
+- Simulação completa com flags `Z` e `N`, acumulador e contador de programa.
+
+---
+
+## ⚠️ Limitações Conhecidas
+
+- Apenas expressões simples com soma são suportadas.
+- Apenas as instruções `LDA`, `ADD`, `STA`, `HLT` e controle de fluxo básicos estão implementadas.
+- Não há verificação de uso de variáveis não declaradas.
+- Não há suporte para subtração, multiplicação ou controle mais complexo (condições aninhadas, laços etc.).
+
+---
+
+## 📎 Exemplo de programa.lpn
+
+```lpn
+PROGRAMA
+A = 10
+B = 20
+C = ?
+INICIO
+C = A + B
+FIM
+```
+
+---
+
+## 🧠 Observações
+
+- O projeto é modular, podendo ser facilmente estendido para incluir novas instruções do Neander.
+- Os arquivos binários seguem o padrão de cabeçalho especificado com 516 bytes de memória simulada.
+
+---
